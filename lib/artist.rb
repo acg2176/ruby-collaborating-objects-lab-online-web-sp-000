@@ -12,10 +12,6 @@ class Artist
     @@all.uniq
   end
 
-  # def all
-  #   @@all
-  # end
-
   def songs
     Song.all.select {|song| song.artist == self}
   end
