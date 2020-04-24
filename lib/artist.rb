@@ -5,15 +5,16 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+    @@all << self
   end
 
   def self.all
-    @@all
+    @@all.uniq
   end
 
-  def all
-    @@all
-  end
+  # def all
+  #   @@all
+  # end
 
   def songs
     Song.all.select {|song| song.artist == self}
