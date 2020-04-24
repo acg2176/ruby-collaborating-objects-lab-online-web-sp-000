@@ -25,13 +25,17 @@ class Artist
     song.artist = self
   end
 
+  def save
+    @@all << self
+  end
+
   def self.find_or_create_by_name(name)
     artist = self.all.find {|artist| artist.name == name} #instance found in the @@all where name is found
     if artist
       artist #returns the instance
     else
       new = self.new(name) #creates new instance Artist, returns the instance
-      @@all << new
+      new.save
       new
     end
   end
